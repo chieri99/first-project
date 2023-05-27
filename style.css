@@ -1,0 +1,154 @@
+/* comentários em css são feitos dessa forma */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* aqui embaixo ta as config pra mudar pro light mode */
+:root{
+    --text-color: white;
+    --bg-url: url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255,255,255,0.5);
+    --surface-color: rgba(255,255,255,0.1);
+    --surface-color-hover: rgba(255,255,255,0.1);
+    --highlight-color: rgba(255,255,255,0.2);
+    --switch-bg-url: url(./assets/moon-stars.svg);
+}
+.light{
+    --text-color: black;
+    --bg-url: url(./assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(0,0,0,0.5);
+    --surface-color: rgba(0,0,0,0.05);
+    --surface-color-hover: rgba(0,0,0,0.2);
+    --highlight-color: rgba(0,0,0,0.1);
+    --switch-bg-url: url(./assets/sun.svg);
+}
+body{
+    /* jeito longo: 
+    background-image: url(./assets/bg-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    */
+
+    /* shorthand
+    background: color image repeat position/size */
+    background: var(--bg-url) no-repeat top center/cover;
+}
+body * {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+}
+
+#container{
+    width: 360px;
+    border: 1px solid red;
+    margin: 56px auto 0px;
+    padding: 0 24px;
+  
+
+}
+#profile{
+    text-align: center;
+    padding: 24px;
+}
+#profile img{
+    width: 112px;
+    margin-top: 8px;
+}
+#profile p {
+    font-weight: 500;
+    line-height: 24px;
+}
+#switch{
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+#switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(--switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    
+    position:absolute;
+    left:0;
+    top:50%;
+    z-index: 1;
+    transform: translateY(-50%)
+}
+
+.light #switch button{
+    right: 0px;
+    left: initial;
+}
+
+#switch span{
+    display: block;
+    border-radius: 9999px;
+    width: 64px;
+    height: 24px;
+    background:var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0px;
+}
+ul li a{
+    border: 1px solid var(--surface-color-hover);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.5s;
+    
+
+}
+/* hover é quando tu passa o mouse por cima*/
+ ul li a:hover{
+    background: rgba(255,255,255,0.05);
+    border: 1.5px solid var(--text-color);
+ }
+
+ #social-links{
+    display: flex;
+    justify-content: center;
+    padding: 23px 0px;
+    font-size: 24px;
+
+ }
+ #social-links a {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    
+    border-radius: 50%;
+    transition: background 0.5s;
+ }
+ #social-links a:hover {
+    background: var(--highlight-color)
+
+
+ }
+
+ footer{
+    padding: 24px 0px;
+    text-align: center;
+    font-size: 14px;
+
+ }
